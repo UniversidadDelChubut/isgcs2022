@@ -1,2 +1,2 @@
 # isgcs2022
-Ingenierái de Software - GCS -  2022
+Ingeniería de Software - GCS -  2022
