@@ -31,7 +31,11 @@ public class Principal {
 		// Persistir las salidas en la base de datos con la clase Escritor
 		
 
+		
+		
+		
 		logger.info("Finaliza main!");
+		logger.info("Chau!");
 	}
 
 }
