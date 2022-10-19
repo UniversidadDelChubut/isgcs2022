@@ -1,5 +1,6 @@
 package practicagcs;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -10,11 +11,6 @@ public class Principal {
 	
 	private static final Logger logger = LogManager.getLogger(Principal.class);
 	
-	private static class Entrada {
-		private String campo;
-		private Double valor;
-	}
-	
 	private static class Salida {
 		private String idProceso;
 		private String campo;
@@ -24,7 +20,11 @@ public class Principal {
 	public static void main(String[] args) {
 		logger.info("Inicia main!");
 		
-		List<Entrada> entradas =  null; // Obtenerla de la clase Lector
+		Lector l = new Lector();
+		
+		List<Entrada> entradas = l.getEntradas("ACA VA EL PATH DONDE ESTE EL ARCHIVO", "provincia", "poblacion") ; // Obtenerla de la clase Lector
+		
+		
 		
 		List<Salida> salidas =  null; // Obtenerla de la clase Procesador a partir delas entradas leidas
 		
