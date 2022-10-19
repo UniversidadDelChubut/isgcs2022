@@ -14,9 +14,9 @@ public class Procesador {
 		String proceso = "";
 		
 		
-		double valor = 0;
+		
 		for (Entrada entrada: entradas) {
-			
+			double valor = 0;	
 			if (m.containsKey(entrada.getCampo())) {
 				valor = m.get(entrada.getCampo());
 			}
