@@ -10,24 +10,21 @@ public class Principal {
 	
 	private static final Logger logger = LogManager.getLogger(Principal.class);
 	
-	private static class Entrada {
-		private String campo;
-		private Double valor;
-	}
-	
-	private static class Salida {
-		private String idProceso;
-		private String campo;
-		private Double total;
-	}
 	
 	public static void main(String[] args) {
 		logger.info("Inicia main!");
 		
-		List<Entrada> entradas =  null; // Obtenerla de la clase Lector
+		List<Entrada> entradas =  new Lector().leerEntradas(); // Obtenerla de la clase Lector
 		
-		List<Salida> salidas =  null; // Obtenerla de la clase Procesador a partir delas entradas leidas
+		List<Salida> salidas =  Procesador.procesar(entradas); // Obtenerla de la clase Procesador a partir delas entradas leidas
 		
+		
+		
+		for (Salida s: salidas) {
+			
+			System.out.println(s);
+			
+		}
 		// Persistir las salidas en la base de datos con la clase Escritor
 		
 
