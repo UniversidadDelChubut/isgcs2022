@@ -1,5 +1,6 @@
 package practicagcs;
 
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,7 +25,11 @@ public class Principal {
 		
 		Lector l = new Lector();
 		
-		List<Entrada> entradas = l.getEntradas("ACA VA EL PATH DONDE ESTE EL ARCHIVO", "provincia", "poblacion") ; // Obtenerla de la clase Lector
+		URL url = Principal.class.getResource("total_titulares_por_periodo.csv");
+		
+		List<Entrada> entradas = l.getEntradas("isgcs2022/resources/total_titulares_por_periodo.csv", 
+												"provincia", 
+												"municipio_id") ; // Obtenerla de la clase Lector
 		
 		
 		// Persistir las salidas en la base de datos con la clase Escritor

@@ -23,13 +23,14 @@ public class Lector {
 	         
 			 String line = "";
 			 int posicionCampo1 = 0;
-			 int posicionCampo2 =0;
+			 int posicionCampo2 = 0;
 	         boolean posicion = false;
 	         
 			 while ((line = br.readLine())!=null) {
+				 
 				 if(posicion == false) {
-					 String[] cabecera = line.split(SEPARATOR);
-					 for (String s : cabecera) {
+					String[] cabecera = line.split(SEPARATOR);
+					for (String s : cabecera) {
 						for (int i = 0; i < cabecera.length; i++) {
 							
 							if (cabecera[i] == campo1) {
@@ -42,10 +43,12 @@ public class Lector {
 						}
 					}
 					posicion = true;
-				 }
+				 } else {
 				 
-	        	 String [] campos = line.split(SEPARATOR);
-	        	 entradas.add(new Entrada(campos[posicionCampo1], Double.parseDouble(campos[posicionCampo2])));
+					String [] campos = line.split(SEPARATOR);
+					entradas.add(new Entrada(campos[posicionCampo1], Double.parseDouble(campos[posicionCampo2])));
+					 
+				 }
 	         }
 	         
 	         br.close();
