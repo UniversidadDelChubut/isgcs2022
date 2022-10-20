@@ -17,13 +17,20 @@ public class Principal {
 		
 		Lector l = new Lector();
 		
-		
-		URL url = Principal.class.getResource("../pepe.txt");
+		String file = "total_titulares_por_periodo.csv";
+		URL url = Principal.class.getResource("../" + file);
 		System.out.println("url : " + url);
 		
-		List<Entrada> entradas = l.getEntradas("ACA VA EL PATH DONDE ESTE EL ARCHIVO", "provincia", "poblacion") ; // Obtenerla de la clase Lector
+		List<Entrada> entradas = l.getEntradas(file, "provincia", "poblacion") ; // Obtenerla de la clase Lector
 	
 		List <Salida>  salidas = new Procesador().procesar(entradas);
+/*
+		
+		
+		List<Entrada> entradas = l.getEntradas("isgcs2022/resources/total_titulares_por_periodo.csv", 
+												"provincia", 
+												"municipio_id") ; // Obtenerla de la clase Lector
+*/
 		
 		
 		for (Salida salida: salidas) {

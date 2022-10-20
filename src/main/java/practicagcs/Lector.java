@@ -2,34 +2,39 @@ package practicagcs;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 
 public class Lector {
 	
-	public static final String SEPARATOR = "#";
+	public static final String SEPARATOR = ",";
 	
 	public static final String QUOTE = "/";
 	
 	private static List<Entrada> entradas;
 	
 	
-	public List<Entrada> getEntradas(String path, String campo1, String campo2) {
+	public List<Entrada> getEntradas(String file, String campo1, String campo2) {
 		
 		BufferedReader br = null;
 		
 		try {
 			
-			 br =new BufferedReader(new FileReader(path));
+			 //br =new BufferedReader( new FileReader(url.toURI().toString()));
 	         
+			br =new BufferedReader( new InputStreamReader( Lector.class.getResourceAsStream("../" + file)  ));
+			
 			 String line = "";
 			 int posicionCampo1 = 0;
-			 int posicionCampo2 =0;
+			 int posicionCampo2 = 0;
 	         boolean posicion = false;
 	         
 			 while ((line = br.readLine())!=null) {
+				 
 				 if(posicion == false) {
-					 String[] cabecera = line.split(SEPARATOR);
-					 for (String s : cabecera) {
+					String[] cabecera = line.split(SEPARATOR);
+					for (String s : cabecera) {
 						for (int i = 0; i < cabecera.length; i++) {
 							
 							if (cabecera[i] == campo1) {
@@ -42,10 +47,12 @@ public class Lector {
 						}
 					}
 					posicion = true;
-				 }
+				 } else {
 				 
-	        	 String [] campos = line.split(SEPARATOR);
-	        	 entradas.add(new Entrada(campos[posicionCampo1], Double.parseDouble(campos[posicionCampo2])));
+					String [] campos = line.split(SEPARATOR);
+					entradas.add(new Entrada(campos[posicionCampo1], Double.parseDouble(campos[posicionCampo2])));
+					 
+				 }
 	         }
 	         
 	         br.close();
