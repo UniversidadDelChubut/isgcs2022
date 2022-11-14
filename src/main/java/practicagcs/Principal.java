@@ -16,26 +16,25 @@ public class Principal {
 	}
 	
 	private static class Salida {
+		
 		private String idProceso;
 		private String campo;
 		private Double total;
+			
 	}
 	
-	public static void main(String[] args) {
+	public static void main (String[] args) {
+		
 		logger.info("Inicia main!");
+				
+		Escritor e = new Escritor();
 		
-		List<Entrada> entradas =  null; // Obtenerla de la clase Lector
+		//reemplazar usuario y contraseña por sus credenciales de postgres
+		e.cargarDatos("usuario", "contraseña");
+		//e.vaciarTabla("usuario", "contraseña");
+			
+		logger.info("Finaliza main!");		
 		
-		List<Salida> salidas =  null; // Obtenerla de la clase Procesador a partir delas entradas leidas
-		
-		// Persistir las salidas en la base de datos con la clase Escritor
-		
-
-		
-		
-		
-		logger.info("Finaliza main!");
-		logger.info("Chau!");
 	}
 
 }
