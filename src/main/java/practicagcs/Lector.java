@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Lector {
@@ -12,7 +13,7 @@ public class Lector {
 	
 	public static final String QUOTE = "/";
 	
-	private static List<Entrada> entradas;
+	private  List<Entrada> entradas = new LinkedList<>();
 	
 	
 	public List<Entrada> getEntradas(String file, String campo1, String campo2) {
@@ -37,11 +38,11 @@ public class Lector {
 					for (String s : cabecera) {
 						for (int i = 0; i < cabecera.length; i++) {
 							
-							if (cabecera[i] == campo1) {
+							if (cabecera[i].equals(campo1)) {
 								posicionCampo1 = i;
 							}
 							
-							if (cabecera[i] == campo2) {
+							if (cabecera[i].equals(campo2)) {
 								posicionCampo2 = i;
 							}
 						}

@@ -50,5 +50,11 @@ public class Entrada {
 			return false;
 		return true;
 	}
-		
+
+	@Override
+	public String toString() {
+		return "Entrada [campo=" + campo + ", valor=" + valor + "]";
+	}
+	
+	
 }

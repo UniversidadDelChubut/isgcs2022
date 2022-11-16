@@ -21,8 +21,13 @@ public class Principal {
 		URL url = Principal.class.getResource("../" + file);
 		System.out.println("url : " + url);
 		
-		List<Entrada> entradas = l.getEntradas(file, "provincia", "poblacion") ; // Obtenerla de la clase Lector
-	
+		List<Entrada> entradas = l.getEntradas(file, "provincia", "titulares") ; // Obtenerla de la clase Lector
+
+		for (Entrada entrada: entradas) {
+			System.out.println(entrada);
+		}
+
+		
 		List <Salida>  salidas = new Procesador().procesar(entradas);
 /*
 		
