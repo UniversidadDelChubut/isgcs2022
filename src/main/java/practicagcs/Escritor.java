@@ -9,10 +9,10 @@ import java.util.List;
 
 public class Escritor {
 	
-	List<Salida> lista = Procesador.llenar();
-	String url = "jdbc:postgresql://localhost:5435/postgres";
 	
-	public Connection cargarDatos(String usuario, String pass) {
+	String url = "jdbc:postgresql://localhost:5432/ings";
+	
+	public Connection cargarDatos(String usuario, String pass, List<Salida> lista) {
 		
 		Connection conn = null;
 		
@@ -21,7 +21,7 @@ public class Escritor {
 			conn = DriverManager.getConnection(this.url,usuario, pass);
 			Statement stmt = conn.createStatement();
 			
-			for (Salida s: this.lista) {
+			for (Salida s: lista) {
 				
 				String insert = "INSERT INTO salida VALUES('"+ s.getIdProceso() +"', '"+s.getCampo()+"', "+s.getTotal()+")";
 			
